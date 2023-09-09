@@ -1,0 +1,56 @@
+{
+  "name": "ElectronAppStoreExample",
+  "productName": "Electron AppStore Example",
+  "version": "1.0.0",
+  "description": "A minimal Electron application to test MAS builds",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "nodemon --exec electron .",
+    "dist": "electron-builder",
+    "distMac": "electron-builder --mac",
+    "distWin": "electron-builder --win"
+  },
+  "repository": "https://github.com/steve981cr/electron-app-store-example",
+  "keywords": [
+    "electron",
+    "electron-builder",
+    "Mac App Store",
+    "mas",
+    "Microsoft Store"
+  ],
+  "author": "YOUR NAME",
+  "license": "CC0-1.0",
+  "build": {
+    "appId": "<com.domainname.appname>",
+    "buildVersion": "1.0.0",
+    "copyright": "Copyright © 202X YOUR NAME HERE",
+    "files": [
+      "!README.md"
+    ],
+    "mac": {
+      "target": "mas-dev",
+      "type": "development",
+      "identity": "Apple Development",
+      "provisioningProfile": "build/mac/AppleDevelopment.provisionprofile",      
+      "hardenedRuntime": false,
+      "gatekeeperAssess": false,
+      "category": "public.app-category.education",
+      "icon": "build/mac/icon.icns",
+      "entitlements": "build/mac/entitlements.mas.plist",
+      "entitlementsInherit": "build/mac/entitlements.mas.inherit.plist"
+    },
+    "win": {
+      "target": "appx"
+    },
+    "appx": {
+      "identityName": "<12345Publishername.AppName>",
+      "publisher": "<CN=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX>",
+      "publisherDisplayName": "<Publisher Name>"
+    }
+  },
+  "devDependencies": {
+    "electron": "^25.8.0",
+    "electron-builder": "^24.6.4"
+  }
+}
